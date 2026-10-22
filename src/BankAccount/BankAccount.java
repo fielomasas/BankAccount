@@ -13,35 +13,39 @@ public class BankAccount {
             System.out.println("Account is FROZEN. Unable to transact.");
             return;
         }
-
-        System.out.printf("Amount deposited: %.2f%n", amount);
         
         if (amount <= 0) {
             System.out.println("Invalid amount. Must be greater than 0.");
-        } else {
-            balance += amount;
-
-            System.out.printf("Current Balance: %.2f%n", getBalance());
+            return;
         }
+
+        double roundedAmount = Math.round(amount * 100.00) / 100.0;
+        balance += roundedAmount;
+        System.out.printf("Amount deposited: %.2f%n", amount);
+        System.out.printf("Current Balance: %.2f%n", getBalance());
     }
 
     public void withdraw(double amount) {
         if(isFrozen()) {
             System.out.println("Account is FROZEN. Unable to transact.");
             return;
-        } 
-
-        System.out.printf("Amount withdrawn: %.2f%n", amount);
-        
-        if (amount <= 0) {
-            System.out.println("Invalid amount. Must be greater than 0.");
-        } else if (amount > balance) {
-            System.out.printf("Insufficient balance. Current balance: %.2f%n", getBalance());
-        } else {
-            balance -= amount;
-
-            System.out.printf("Current Balance: %.2f%n", getBalance());
         }
+
+        double roundedAmount = Math.round(amount * 100.00) / 100.0;
+        
+        if (roundedAmount <= 0) {
+            System.out.println("Invalid amount. Must be greater than 0.");
+            return;
+        }
+        
+        if (roundedAmount > balance) {
+            System.out.printf("Insufficient balance. Current balance: %.2f%n", getBalance());
+            return;
+        }
+
+        balance -= roundedAmount;
+        System.out.printf("Amount withdrawn: %.2f%n", amount);
+        System.out.printf("Current Balance: %.2f%n", getBalance());
     }
 
     // Helper Functions
