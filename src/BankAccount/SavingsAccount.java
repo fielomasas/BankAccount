@@ -1,4 +1,5 @@
 package BankAccount;
+
 public class SavingsAccount extends BankAccount{
     private String ownerName;
 

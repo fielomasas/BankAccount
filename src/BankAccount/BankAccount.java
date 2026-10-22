@@ -1,7 +1,10 @@
 package BankAccount;
-public class BankAccount {
+
+public abstract class BankAccount {
     private double balance;
     private boolean isFrozen;
+
+    public abstract String getOwnerName();
 
     public BankAccount() {
         this.balance = 0;
