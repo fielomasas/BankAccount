@@ -1,14 +1,18 @@
 package BankAccount;
 
+import java.util.*;
+
 public abstract class BankAccount {
     private double balance;
     private boolean isFrozen;
+    private List<Transaction> transactionHistory;
 
     public abstract String getOwnerName();
 
     public BankAccount() {
         this.balance = 0;
         this.isFrozen = false;
+        this.transactionHistory = new ArrayList<Transaction>();
     }
 
     public void deposit(double amount) {
@@ -26,6 +30,7 @@ public abstract class BankAccount {
         balance += roundedAmount;
         System.out.printf("Amount deposited: %.2f%n", amount);
         System.out.printf("Current Balance: %.2f%n", getBalance());
+        transactionHistory.add(new Transaction("Deposit", amount));
     }
 
     public void withdraw(double amount) {
@@ -49,6 +54,11 @@ public abstract class BankAccount {
         balance -= roundedAmount;
         System.out.printf("Amount withdrawn: %.2f%n", amount);
         System.out.printf("Current Balance: %.2f%n", getBalance());
+        transactionHistory.add(new Transaction("Withdraw", amount));
+    }
+
+    public String getTransactionHistory() {
+        return transactionHistory.toString();
     }
 
     // Helper Functions
