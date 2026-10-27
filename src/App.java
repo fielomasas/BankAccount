@@ -3,6 +3,7 @@ import BankAccount.BankAccountManager;
 import BankAccount.SavingsAccount;
 import java.util.Scanner;
 
+/** Provides the command-line interface for the bank account application. */
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -36,7 +37,9 @@ public class App {
         //                 break;
         //         }
         //     } else {
-        //         printMenuWithAccount(currAccount.getOwnerName());
+        //         if (currAccount instanceof SavingsAccount savingsAccount) {
+        //             printMenuWithAccount(savingsAccount.getOwnerName());
+        //         }
 
         //         System.out.print("Enter action: ");
         //         choice = sc.nextInt();
@@ -57,20 +60,17 @@ public class App {
         //                 currAccount.withdraw(amount);
         //                 break;
         //             case 3:
-        //                 // Status
-        //                 System.out.print("Account Status: ");
-        //                 if(currAccount.isFrozen()) {
-        //                     System.out.println("Frozen");
-        //                 } else {
-        //                     System.out.println("Unfrozen");
-        //                 }
+        //                 // Display Balance
+        //                 System.out.printf("Current Balance: %.2f%n", currAccount.getBalance());
         //                 break;
         //             case 4:
         //                 // Freeze/Unfreeze
         //                 if(currAccount.isFrozen()) {
         //                     currAccount.unfreezeAccount();
+        //                     System.out.println("Account is now Unfrozen.");
         //                 } else {
         //                     currAccount.freezeAccount();
+        //                     System.out.println("Account is now Frozen.");
         //                 }
         //                 break;
         //             case 5:
@@ -154,7 +154,7 @@ public class App {
         Hi! %s
         1. Deposit
         2. Withdraw
-        3. Status
+        3. View Balance
         4. Freeze/Unfreeze
         5. Log Out
         - - - - - - - - -

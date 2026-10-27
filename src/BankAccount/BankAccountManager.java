@@ -3,6 +3,9 @@ package BankAccount;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Manages bank accounts and provides operations for adding, retrieving, and listing them.
+ */
 public class BankAccountManager implements Bank {
     private Map<Integer, BankAccount> accounts;
     private int id;
@@ -35,9 +38,12 @@ public class BankAccountManager implements Bank {
     public void listAccounts() {
         for (Map.Entry<Integer, BankAccount> entry : accounts.entrySet()) {
             BankAccount account = entry.getValue();
-            System.out.println("Account ID: " + entry.getKey()
-            + ", Account Name: " + account.getOwnerName()
-            + ", Balance: " + account.getBalance());
+
+            if (account instanceof SavingsAccount savingsAccount) {
+                System.out.println("Account ID: " + entry.getKey()
+                + ", Account Name: " + savingsAccount.getOwnerName()
+                + ", Balance: " + savingsAccount.getBalance());
+            }
         }
     }
 }
