@@ -32,6 +32,6 @@ public class Transaction {
     return "[type = " + this.type + ", amount = " 
       + this.amount + ", time_stamp = " 
       + this.timeStamp.format(format) 
-      + "]";
+      + "]\n";
   }
 }
