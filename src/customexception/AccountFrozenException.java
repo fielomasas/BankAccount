@@ -1,4 +1,4 @@
-package CustomExceptions;
+package customexception;
 
 /**
  * Thrown when operations are performed on a frozen account.

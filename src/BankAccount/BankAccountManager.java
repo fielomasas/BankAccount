@@ -1,6 +1,8 @@
-package BankAccount;
+package bankaccount;
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Manages bank accounts and provides operations for adding, retrieving, and listing them.
@@ -10,6 +12,9 @@ public class BankAccountManager implements Bank {
     private int id;
     private static final int MAX_ACCOUNTS = 100;
 
+    /**
+     * Generates a hashmap of accounts and initilizes the id to 0
+     */
     public BankAccountManager() {
         this.accounts = new HashMap<>();
         this.id = 0;
@@ -34,6 +39,9 @@ public class BankAccountManager implements Bank {
         return accounts.get(id);
     }
 
+    /**
+     * Lists all the account being handle by the bank manager
+     */
     public void listAccounts() {
         for (Map.Entry<Integer, BankAccount> entry : accounts.entrySet()) {
             BankAccount account = entry.getValue();
@@ -46,11 +54,19 @@ public class BankAccountManager implements Bank {
         }
     }
 
-    public List<Transaction> filterTransactionsAtOrAbove(double amount, List<Transaction> txList) {
-        return txList.stream().filter(tx -> tx.getAmount() >= amount).toList();
+    public List<Transaction> filterTransactionsAtOrAbove(
+        double amount, List<Transaction> txList
+    ) {
+        return txList.stream().filter(
+            tx -> tx.getAmount() >= amount
+        ).toList();
     }
 
-    public List<Transaction> sortTransactionsByAmount(List<Transaction> txList) {
-        return txList.stream().sorted((a, b) -> Double.compare(a.getAmount(), b.getAmount())).toList();
+    public List<Transaction> sortTransactionsByAmount(
+        List<Transaction> txList
+    ) {
+        return txList.stream().sorted(
+            (a, b) -> Double.compare(a.getAmount(), b.getAmount())
+        ).toList();
     }
 }

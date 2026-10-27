@@ -1,92 +1,10 @@
-import BankAccount.BankAccount;
-import BankAccount.BankAccountManager;
-import BankAccount.SavingsAccount;
-import java.util.Scanner;
+import bankaccount.BankAccount;
+import bankaccount.BankAccountManager;
+import bankaccount.SavingsAccount;
 
 /** Provides the command-line interface for the bank account application. */
 public class App {
     public static void main(String[] args) throws Exception {
-
-        // Dynamic Case Testing
-
-        // BankAccount currAccount = null;
-        // Scanner sc = new Scanner(System.in);
-        // boolean isRunning = true, hasAccount = false;
-        // int choice;
-
-        // while(isRunning) {
-        //     if(!hasAccount) {
-        //         printMenuNoAccount();
-
-        //         System.out.print("Enter action: ");
-        //         choice = sc.nextInt();
-        //         sc.nextLine();
-
-        //         switch (choice) {
-        //             case 1:
-        //                 System.out.print("Enter Name for the account: ");
-        //                 String name = sc.nextLine();
-        //                 currAccount = new SavingsAccount(name);
-        //                 hasAccount = true;
-        //                 break;
-        //             case 2:
-        //                 isRunning = false;
-        //                 break;
-        //             default:
-        //                 System.out.println("Invalid Action. Please enter a valid number.");
-        //                 break;
-        //         }
-        //     } else {
-        //         if (currAccount instanceof SavingsAccount savingsAccount) {
-        //             printMenuWithAccount(savingsAccount.getOwnerName());
-        //         }
-
-        //         System.out.print("Enter action: ");
-        //         choice = sc.nextInt();
-
-        //         double amount;
-
-        //         switch (choice) {
-        //             case 1:
-        //                 // Deposit
-        //                 System.out.print("Enter amount to deposit: ");
-        //                 amount = sc.nextDouble();
-        //                 currAccount.deposit(amount);
-        //                 break;
-        //             case 2:
-        //                 // Withdraw
-        //                 System.out.print("Enter amount to withdraw: ");
-        //                 amount = sc.nextDouble();
-        //                 currAccount.withdraw(amount);
-        //                 break;
-        //             case 3:
-        //                 // Display Balance
-        //                 System.out.printf("Current Balance: %.2f%n", currAccount.getBalance());
-        //                 break;
-        //             case 4:
-        //                 // Freeze/Unfreeze
-        //                 if(currAccount.isFrozen()) {
-        //                     currAccount.unfreezeAccount();
-        //                     System.out.println("Account is now Unfrozen.");
-        //                 } else {
-        //                     currAccount.freezeAccount();
-        //                     System.out.println("Account is now Frozen.");
-        //                 }
-        //                 break;
-        //             case 5:
-        //                 // Log Out
-        //                 hasAccount = false;
-        //                 break;
-        //             default:
-        //                 System.out.println("Invalid Action. Please enter a valid number.");
-        //                 break;
-        //         }
-                
-        //     }
-        // }
-
-        // sc.close();
-
         // Hardcoded Test Cases
 
         System.out.println("Exercise 1 Test Cases");
@@ -164,25 +82,5 @@ public class App {
         System.out.println(accM1.sortTransactionsByAmount(acc1.getTransactionHistory()));
     }
 
-    public static void printMenuNoAccount() {
-        System.out.println("""
-        - - -  MENU - - -
-        1. Create Account
-        2. Exit
-        - - - - - - - - -
-        """);
-    }
-
-    public static void printMenuWithAccount(String name) {
-        System.out.printf("""
-        - - -  MENU - - -
-        Hi! %s
-        1. Deposit
-        2. Withdraw
-        3. View Balance
-        4. Freeze/Unfreeze
-        5. Log Out
-        - - - - - - - - -
-        """, name);
-    }
+    
 }

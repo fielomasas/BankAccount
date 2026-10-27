@@ -1,4 +1,4 @@
-package CustomExceptions;
+package customexception;
 
 /**
  * Thrown when a withdrawal exceeds the available balance.

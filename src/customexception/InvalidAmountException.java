@@ -1,4 +1,4 @@
-package CustomExceptions;
+package customexception;
 
 /**
  * Thrown when an invalid amount (negative or zero) is deposited or withdrawn.
