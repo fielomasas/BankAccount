@@ -1,7 +1,6 @@
 package BankAccount;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Manages bank accounts and provides operations for adding, retrieving, and listing them.
@@ -45,5 +44,13 @@ public class BankAccountManager implements Bank {
                 + ", Balance: " + savingsAccount.getBalance());
             }
         }
+    }
+
+    public List<Transaction> filterTransactionsAtOrAbove(double amount, List<Transaction> txList) {
+        return txList.stream().filter(tx -> tx.getAmount() >= amount).toList();
+    }
+
+    public List<Transaction> sortTransactionsByAmount(List<Transaction> txList) {
+        return txList.stream().sorted((a, b) -> Double.compare(a.getAmount(), b.getAmount())).toList();
     }
 }

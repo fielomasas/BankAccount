@@ -1,7 +1,8 @@
 package BankAccount;
 
-import java.time.*;
+import java.time.LocalDateTime;
 
+/** Represents a bank account transaction. */
 public class Transaction {
     String type;
     double amount;
@@ -11,6 +12,10 @@ public class Transaction {
         this.type = type;
         this.amount = amount;
         this.time_stamp = LocalDateTime.now();
+    }
+
+    public double getAmount() {
+        return amount;
     }
 
     public String toString() {

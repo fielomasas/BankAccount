@@ -137,6 +137,31 @@ public class App {
 
         System.out.println("\nTest Case 5");
         accM1.listAccounts();
+
+        System.out.println("\nExercise 3 Test Cases");
+        System.out.println("\nTest Case 1");
+        acc1.deposit(-500);
+
+        System.out.println("\nTest Case 2");
+        acc1.freezeAccount();
+        acc1.deposit(11500);
+        acc1.unfreezeAccount();
+
+        System.out.println("\nTest Case 3");
+        acc1.withdraw(-100);
+
+        System.out.println("\nTest Case 4");
+        acc1.withdraw(1500);
+
+        System.out.println("\nTest Case 5");
+        acc1.freezeAccount();
+        acc1.withdraw(500);
+
+        System.out.println("\nTest Case 6");
+        System.out.println(accM1.filterTransactionsAtOrAbove(200, acc1.getTransactionHistory()));
+
+        System.out.println("\nTest Case 7");
+        System.out.println(accM1.sortTransactionsByAmount(acc1.getTransactionHistory()));
     }
 
     public static void printMenuNoAccount() {
