@@ -5,8 +5,6 @@ import bankaccount.SavingsAccount;
 /** Provides the command-line interface for the bank account application. */
 public class App {
     public static void main(String[] args) throws Exception {
-        // Hardcoded Test Cases
-
         System.out.println("Exercise 1 Test Cases");
         System.out.println("\nTest Case 1");
         BankAccount acc1 = new SavingsAccount("Test0");
