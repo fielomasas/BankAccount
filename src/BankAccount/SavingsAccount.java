@@ -1,6 +1,7 @@
 package BankAccount;
 
-public class SavingsAccount extends BankAccount{
+/** Represents a savings account with an owner. */
+public class SavingsAccount extends BankAccount {
     private String ownerName;
 
     public SavingsAccount(String ownerName) {

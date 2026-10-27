@@ -1,10 +1,11 @@
 package BankAccount;
 
-public abstract class BankAccount {
-    private double balance;
+/**
+ * Represents an bank account with balance and transaction controls.
+ */
+public class BankAccount {
+    private double balance, roundedAmount;
     private boolean isFrozen;
-
-    public abstract String getOwnerName();
 
     public BankAccount() {
         this.balance = 0;
@@ -22,7 +23,7 @@ public abstract class BankAccount {
             return;
         }
 
-        double roundedAmount = Math.round(amount * 100.00) / 100.0;
+        roundedAmount = roundAmount(amount);
         balance += roundedAmount;
         System.out.printf("Amount deposited: %.2f%n", amount);
         System.out.printf("Current Balance: %.2f%n", getBalance());
@@ -34,7 +35,7 @@ public abstract class BankAccount {
             return;
         }
 
-        double roundedAmount = Math.round(amount * 100.00) / 100.0;
+        roundedAmount = roundAmount(amount);
         
         if (roundedAmount <= 0) {
             System.out.println("Invalid amount. Must be greater than 0.");
@@ -66,5 +67,9 @@ public abstract class BankAccount {
 
     public void unfreezeAccount() {
         isFrozen = false;
+    }
+
+    public double roundAmount(double amount) {
+        return Math.round(amount * 100.00) / 100.0;
     }
 }
